@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://unpkg.com/popoto/dist/popoto.min.css">
-    <script src="https://unpkg.com/popoto"></script>
+    <link rel="stylesheet" href="styles/neod3.css">
+    <link rel="stylesheet" href="styles/vendor.css">
     <style>
     * {
     margin: 0px;
@@ -59,19 +59,95 @@
         background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
         background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
         }
+        height:100%;
     .div4 {
         grid-area: 2 / 3 / 3 / 4;
         border-left: 1px solid #eee;
         }
 
+    .fullheight {
+        height:100%;
+    }
+
+    svg {
+    /*  background: #333;*/
+       width:100%;
+       height:100%;
+    }
+    .CodeMirror, .CodeMirror-scroll {
+      height:auto;
+    }
+
+    #execute {
+       font-size:30px;
+       position:absolute;
+       top: 0.6em;
+       right: 10em;
+    }
+
+    #neo4jUrl {
+       position:absolute;
+       right: 5px;
+       top: 1em;
+       z-index: 100;
+       width: 20em;
+    }
+
+    #neo4jUser {
+       position:absolute;
+       right: 9em;
+       top: 4em;
+       z-index: 100;
+       width: 8em;
+    }
+
+    #neo4jPass {
+       position:absolute;
+       right: 5px;
+       top: 4em;
+       z-index: 100;
+       width: 8em;
+    }
     </style>
 </head>
 <body>
 <div class="parent">
-<div class="div1"> A</div>
+<div class="div1"> <a href="#" title="Execute" id="execute"><i class="fa fa-play-circle-o"></i></a></div>
 <div class="div2"> <textarea class = "textareastyle" name="Text1" autofocus="autofocus" placeholder="Input to encrypt" wrap="hard"></textarea></div>
-<div class="div3 pt-section-main"> C</div>
+<div class="div3 pt-section-main">
+    <div class="tab-pane active fullheight" id="graph">&nbsp;</div>
+</div>
 <div class="div4"> <textarea  class = "textareastyle" name="Text1" placeholder="Input to decrypt" wrap="hard"></textarea></div>
 </div>
+
+  <script src="scripts/vendor.js"></script>
+  <script src="scripts/neod3.js"></script>
+  <script src="scripts/neod3-visualization.js"></script>
+
+<script type="text/javascript">
+        var neod3 = new Neod3Renderer();
+        var graphId = "graph";
+        var c=$("#"+graphId);
+        c.empty();
+        var graph = {nodes: [
+        {id: "4", labels: ["input_node"], name:'Key'},
+        {id: "0", labels: ["input_node"], name:'Input'},
+        {id: "1", labels: ["output_node"], name:'Output'},
+        {id: "2", labels: ["block_chiper"], name:'DES3'},
+        {id: "3", labels: ["block_chiper"], name:'DES3'},
+        ],
+        links: [
+            {id: "0", start: "4", end: "2", type: "Key"},
+            {id: "1", start: "0", end: "2", type: "Text"},
+            {id: "2", start: "2", end: "3", type: "Text"},
+            {id: "3", start: "3", end: "1", type: "Text"},
+        ]
+        }
+
+        neod3.render(graphId, c ,graph);
+        //renderResult(tableId, res.table);
+</script>
+
+
 </body>
 </html>

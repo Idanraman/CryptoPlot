@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="130c0a70-8cb2-4ab7-a78c-d2d107c6150b" name="Default Changelist" comment="" />
+    <list default="true" id="130c0a70-8cb2-4ab7-a78c-d2d107c6150b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/readme.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/scripts/cy2neod3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/scripts/cypher.datatable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/scripts/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/scripts/jquery.dataTables.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/scripts/neo4d3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/scripts/neod3-visualization.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/scripts/neod3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/scripts/sweet-alert.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/scripts/vendor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/styles/cy2neo.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/styles/datatable.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/styles/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/styles/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/styles/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/styles/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/styles/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/styles/gh-fork-ribbon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/styles/images/maze-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/styles/neod3.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/styles/sweet-alert.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cy2neo-neod3/styles/vendor.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZItjjEwXuC64ucZfBOfNjbIxNC" />
   <component name="ProjectViewState">
@@ -44,6 +75,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584541361253" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1584617183646">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584617183646" />
     <state x="143" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1584604995197">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -25,10 +25,10 @@ function Neod3Renderer() {
 
     var serializer = null;
 
-    var $downloadSvgLink = $('<a href="#" class="btn btn-success visualization-download" target="_blank"><i class="icon-download-alt"></i> Download SVG</a>').hide().click(function () {
-        $downloadSvgLink.hide();
-    });
-    var downloadSvgLink = $downloadSvgLink[0];
+//    var $downloadSvgLink = $('<a href="#" class="btn btn-success visualization-download" target="_blank"><i class="icon-download-alt"></i> Download SVG</a>').hide().click(function () {
+//        $downloadSvgLink.hide();
+//    });
+//    var downloadSvgLink = $downloadSvgLink[0];
     var blobSupport = 'Blob' in window;
     var URLSupport = 'URL' in window && 'createObjectURL' in window.URL;
     var msBlobSupport = typeof window.navigator.msSaveOrOpenBlob !== 'undefined';
@@ -120,21 +120,27 @@ function Neod3Renderer() {
         function enableZoomHandlers() {
             renderer.on("wheel.zoom",zoomHandlers.wheel);
             renderer.on("mousewheel.zoom",zoomHandlers.mousewheel);
-            renderer.on("mousedown.zoom",zoomHandlers.mousedown);
             renderer.on("DOMMouseScroll.zoom",zoomHandlers.DOMMouseScroll);
+        }
+
+        function enableMoveHandlers() {
+            renderer.on("mousedown.zoom",zoomHandlers.mousedown);
             renderer.on("touchstart.zoom",zoomHandlers.touchstart);
             renderer.on("touchmove.zoom",zoomHandlers.touchmove);
             renderer.on("touchend.zoom",zoomHandlers.touchend);
         }
 
-        function disableZoomHandlers() {
-            renderer.on("wheel.zoom",null);
-            renderer.on("mousewheel.zoom",null);
-            renderer.on("mousedown.zoom", null);
-            renderer.on("DOMMouseScroll.zoom", null);
+        function disableMoveHandlers() {
+            renderer.on("mousedown.zoom",null);
             renderer.on("touchstart.zoom",null);
             renderer.on("touchmove.zoom",null);
             renderer.on("touchend.zoom",null);
+        }
+
+        function disableZoomHandlers() {
+            renderer.on("wheel.zoom",null);
+            renderer.on("mousewheel.zoom",null);
+            renderer.on("DOMMouseScroll.zoom", null);
         }
 
         function legend(svg, styles) {
@@ -187,10 +193,10 @@ function Neod3Renderer() {
         }
         function keyHandler() {
             if (d3.event.altKey || d3.event.shiftKey) {
-                enableZoomHandlers();
+                enableMoveHandlers();
             }
             else {
-               disableZoomHandlers();
+               disableMoveHandlers();
             }
         }
 
@@ -202,7 +208,7 @@ function Neod3Renderer() {
            //  links[i].properties = props(links[i]);
         }
         var nodeStyles = node_styles(nodes);
-        create_styles(nodeStyles, existingStyles);
+        styles = create_styles(nodeStyles, existingStyles);
         var styleSheet = style_sheet(existingStyles, styleContents);
         var graphModel = neo.graphModel()
             .nodes(nodes)
@@ -214,7 +220,7 @@ function Neod3Renderer() {
         var renderer = svg.data([graphModel]);
         legend(svg,existingStyles);
         var zoomHandlers = {};
-        var zoomBehavior = d3.behavior.zoom().on("zoom", applyZoom).scaleExtent([0.2, 8]);
+        var zoomBehavior = d3.behavior.zoom().on("zoom", applyZoom).scaleExtent([0.5, 4]);
 
         renderer.call(graphView);
         renderer.call(zoomBehavior);
@@ -226,7 +232,8 @@ function Neod3Renderer() {
         zoomHandlers.touchstart = renderer.on("touchstart.zoom");
         zoomHandlers.touchmove = renderer.on("touchmove.zoom")
         zoomHandlers.touchend = renderer.on("touchend.zoom");
-        disableZoomHandlers();
+        enableZoomHandlers();
+        disableMoveHandlers();
 
         d3.select('body').on("keydown", keyHandler).on("keyup", keyHandler);
 
@@ -296,6 +303,8 @@ function Neod3Renderer() {
         svgStyling = '<style>\n' + data + '\n</style>';
         $(svgStyling).appendTo('head');
     });
+
+
 
     return {'render': render};
 }

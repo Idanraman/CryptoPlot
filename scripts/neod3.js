@@ -544,7 +544,7 @@ neo.layout = (function() {
     _force.init = function(render) {
       var accelerateLayout, d3force, forceLayout, linkDistance;
       forceLayout = {};
-      linkDistance = 60;
+      linkDistance = 100;
       d3force = d3.layout.force().linkDistance(linkDistance).charge(-1000).gravity(0.3);
       accelerateLayout = function() {
         var d3Tick, maxAnimationFramesPerSecond, maxComputeTime, maxStepsPerTick, now;
@@ -579,11 +579,13 @@ neo.layout = (function() {
         nodes = graph.nodes();
         relationships = graph.relationships();
         radius = nodes.length * linkDistance / (Math.PI * 2);
+
         center = {
           x: size[0] / 2,
           y: size[1] / 2
         };
         neo.utils.circularLayout(nodes, center, radius);
+        nodes[0].x = 50;
         return d3force.nodes(nodes).links(relationships).size(size).start();
       };
       forceLayout.drag = d3force.drag;
@@ -1256,10 +1258,12 @@ neo.utils.circularLayout = function(nodes, center, radius) {
   _results = [];
   for (i = _i = 0, _len = unlocatedNodes.length; _i < _len; i = ++_i) {
     n = unlocatedNodes[i];
-    n.x = center.x + radius * Math.sin(2 * Math.PI * i / unlocatedNodes.length);
-    _results.push(n.y = center.y + radius * Math.cos(2 * Math.PI * i / unlocatedNodes.length));
+    n.x = center.x  +  radius * Math.sin(2 * Math.PI * i / unlocatedNodes.length);
+    _results.push(n.y =center.y + radius * Math.cos(2 * Math.PI * i / unlocatedNodes.length));
+    //_results.push(n.y =5);
   }
   return _results;
+
 };
 
 neo.utils.distributeCircular = function(arrowAngles, minSeparation) {
