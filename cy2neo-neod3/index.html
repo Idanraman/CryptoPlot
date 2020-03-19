@@ -1,0 +1,58 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="styles/cy2neo.css">
+<link rel="stylesheet" href="styles/neod3.css">
+<link rel="stylesheet" href="styles/datatable.css">
+<link rel="stylesheet" href="styles/vendor.css"> <!-- bootstrap-->
+<link rel="stylesheet" href="styles/sweet-alert.css">
+  <style>
+        .div1 {
+        width:600px;
+        height:100%;
+    }
+  </style>
+</head>
+<body>
+<div class="div1">
+  <a href="#" title="Execute" id="execute"><i class="fa fa-play-circle-o"></i></a>
+  <div role="tabpanel">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#graph" aria-controls="home" role="tab" data-toggle="tab">Graph</a></li>
+      <li role="presentation"><a href="#table" aria-controls="table" role="tab" data-toggle="tab">Table</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="graph">
+          <div class="tab-pane active" id="graph">&nbsp;</div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="table">
+          <div id="datatable"></div>
+      </div>
+    </div>
+
+  </div>
+  <script src="scripts/vendor.js"></script>
+  <script src="scripts/sweet-alert.min.js"></script>
+  <script src="scripts/neod3.js"></script>
+  <script src="scripts/neod3-visualization.js"></script>
+  <script src="scripts/neo4d3.js"></script>
+  <script src="scripts/cy2neod3.js"></script>
+  <script src="scripts/jquery.dataTables.min.js"></script>
+  <script src="scripts/cypher.datatable.js"></script>
+
+
+
+  <script type="text/javascript">
+      $(document).ready(function() {
+          var config = {}
+          var connection = function() { return {url:"http://localhost:7474", user:"neo4j",pass:"1234"}; }
+          new Cy2NeoD3(config,"graph","datatable","execute","execute", connection , true);
+      });
+  </script>
+</div>
+</body>
+</html>
